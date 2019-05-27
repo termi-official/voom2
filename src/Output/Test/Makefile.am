@@ -11,13 +11,13 @@ INCLUDES     = 	-I./ 							\
 		-I./../../Material					\
 		-I./../../Element					\
 		-I./../../Mesh 						\
-		-I/u/local/apps/eigen/3.2.4/gcc-4.4.7/include/eigen3	\
+		-I/usr/include/eigen3	\
 		-I./../../Geometry -I./../HalfEdgeMesh			\
 		-I./../../Model						\
-		-I/u/local/apps/vtk/5.8.0/include/vtk-5.8		\
+		-I/home/termi/Repos/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-8.2.1/vtk-8.1.2-ahw6y34tf2ylqla7ozn47nvwvs2pfta3/include/vtk-8.1		\
 		-I./../Output
 
-AM_LDFLAGS   =  -L/u/local/apps/vtk/5.8.0/lib/vtk-5.8			\
+AM_LDFLAGS   =  -L/home/termi/Repos/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-8.2.1/vtk-8.1.2-ahw6y34tf2ylqla7ozn47nvwvs2pfta3/lib			\
 		-L./                                                            \
                 -L./../                                                         \
 		-L./../../							\
@@ -32,6 +32,6 @@ AM_LDFLAGS   =  -L/u/local/apps/vtk/5.8.0/lib/vtk-5.8			\
                 -L./../../HalfEdgeMesh						\
 		-L./../Output
 
-LDADD	     =  -lvtkIO -lvtkGraphics -lvtkGenericFiltering -lvtkFiltering -lvtkCommon -lvtksys -ldl -lpthread -lvtkzlib -lvtkexpat -lvtkCommon -lvtkHybrid -lvtkImaging -lvtkFiltering -lvtkRendering -lOutput
+LDADD	     = -lvtkCommonDataModel-8.1 -lvtkIOLegacy-8.1 -lvtkCommonCore-8.1 -lvtksys-8.1 -lOutput
 
 TestVTKOutput_SOURCES = TestVTKOutput.cc

@@ -15,9 +15,9 @@ INCLUDES =		-I./							\
 			-I./../../Material/MechanicsMaterial			\
 			-I./../../Material/ViscousMaterial			\
 			-I./../../Element 					\
-			-I/u/local/apps/eigen/3.2.4/gcc-4.4.7/include/eigen3	\
-		    	-I/u/local/apps/boost/1_59_0/gcc-4.4.7/include		\
-			-I/u/local/apps/vtk/5.8.0/include/vtk-5.8
+			-I/usr/include/eigen3	\
+		    	-I/home/termi/Repos/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-8.2.1/boost-1.59.0-6mvivlutt6d2ngomszwekq3ihz3veibx/include		\
+			-I/home/termi/Repos/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-8.2.1/vtk-8.1.2-ahw6y34tf2ylqla7ozn47nvwvs2pfta3/include/vtk-8.1
 
 AM_LDFLAGS = 		-L./							\
 			-L./../							\
@@ -33,7 +33,7 @@ AM_LDFLAGS = 		-L./							\
 	     		-L./../../Potential					\
 	     		-L./../../Material/MechanicsMaterial			\
 			-L./../../Material/ViscousMaterial			\
-			-L/u/local/apps/vtk/5.8.0/lib/vtk-5.8
+			-L/home/termi/Repos/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-8.2.1/vtk-8.1.2-ahw6y34tf2ylqla7ozn47nvwvs2pfta3/lib
 
 LDADD = 		-lSolver						\
 			-lModel							\
@@ -47,7 +47,7 @@ LDADD = 		-lSolver						\
 			-lMechanicsMaterial					\
 			-lViscousMaterial					\
 			-lgfortran						\
-			-lvtkIO -lvtkGraphics -lvtkGenericFiltering -lvtkFiltering -lvtkCommon -lvtksys -ldl -lpthread -lvtkzlib -lvtkDICOMParser -lvtkNetCDF -lvtkmetaio -lvtkNetCDF_cxx -lvtksqlite -lvtkpng -lvtkjpeg -lvtktiff -lvtkexpat -lvtkverdict
+			-lvtkCommonDataModel-8.1 -lvtkIOXML-8.1 -lvtkIOLegacy-8.1 -lvtkCommonCore-8.1 -lvtksys-8.1
 
 TestStrip_SOURCES = TestStrip.cc
 EllipsoidLV_SOURCES = EllipsoidLV.cc

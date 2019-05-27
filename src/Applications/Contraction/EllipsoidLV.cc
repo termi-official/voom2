@@ -4,7 +4,7 @@
 #include "HillForceVelPotential.h"
 #include "BlankPotential.h"
 #include "APForceVelPotential.h"
-#include "APForceVelPotential_Test.h"
+//#include "APForceVelPotential_Test.h"
 #include "Humphrey_Compressible.h"
 #include "LinYinActive_Compressible.h"
 #include "Potential.h"
@@ -62,8 +62,8 @@ int main(int argc, char** argv)
   double deltaT = 0.01;
 
   // OutputString
-  string outputString = "/u/project/cardio/adityapo/ScratchResults/PressureOnly/Ellipsoid";
-  // string outputString = "/u/project/cardio/adityapo/ScratchResults/ContractionOnly/Ellipsoid";
+  string outputString = "/home/termi/ScratchResults/PressureOnly/Ellipsoid";
+  // string outputString = "/home/termi/ScratchResults/ContractionOnly/Ellipsoid";
 
   // Fiber Visualization String
   string fiberPlotString = outputString + "_Fiber.vtk";

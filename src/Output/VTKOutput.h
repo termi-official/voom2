@@ -52,7 +52,7 @@ namespace voom {
     void writeOutput()
     {
       _writer->SetFileName(_outputFileName.c_str());
-      _writer->SetInput(_dataSet);
+      _writer->SetInputData(_dataSet);
       _writer->Write();
     }
 

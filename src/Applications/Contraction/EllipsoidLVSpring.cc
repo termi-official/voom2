@@ -4,7 +4,7 @@
 #include "HillForceVelPotential.h"
 #include "BlankPotential.h"
 #include "APForceVelPotential.h"
-#include "APForceVelPotential_Test.h"
+//#include "APForceVelPotential_Test.h"
 #include "Humphrey_Compressible.h"
 #include "LinYinActive_Compressible.h"
 #include "Potential.h"

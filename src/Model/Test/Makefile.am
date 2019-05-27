@@ -11,7 +11,7 @@ INCLUDES = -I./							\
 	   -I./../../Element					\
 	   -I./../../Mesh					\
 	   -I./../../Solver					\
-	   -I/u/local/apps/eigen/3.2.4/gcc-4.4.7/include/eigen3	\
+	   -I/usr/include/eigen3	\
 	   -I./../../Geometry -I./../../HalfEdgeMesh
 AM_LDFLAGS = 	-L./ 								\
 	     	-L./../ 							\

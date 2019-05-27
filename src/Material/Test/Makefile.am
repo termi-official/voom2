@@ -6,7 +6,7 @@ INCLUDES =		-I./../					\
 	 		-I./../../VoomMath/ 			\
 			-I./../../Potential/			\
 			-I./../../Geometry/			\
-			-I/u/local/apps/eigen/3.2.4/gcc-4.4.7/include/eigen3
+			-I/usr/include/eigen3
 AM_LDFLAGS 	= 	-L./../	                                \
 			-L./../../Potential/			\
 	         	-L./../../VoomMath/ 			\

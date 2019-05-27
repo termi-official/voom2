@@ -1083,7 +1083,7 @@ namespace voom {
     // Write file
     vtkSmartPointer<vtkXMLUnstructuredGridWriter> writer = vtkSmartPointer<vtkXMLUnstructuredGridWriter>::New();
     writer->SetFileName(outputFileName.c_str());
-    writer->SetInput(newUnstructuredGrid);
+    writer->SetInputData(newUnstructuredGrid);
     writer->Write();
     
     // ** BEGIN: SUPPORT FOR INTEGRATION POINTS ** //
@@ -1168,7 +1168,7 @@ namespace voom {
     // Write File
     vtkSmartPointer<vtkXMLPolyDataWriter> IntegrationPointWriter = vtkSmartPointer<vtkXMLPolyDataWriter>::New();
     IntegrationPointWriter->SetFileName(outputIntegrationPointDataFileName.c_str());
-    IntegrationPointWriter->SetInput(IntegrationPointGrid);
+    IntegrationPointWriter->SetInputData(IntegrationPointGrid);
     IntegrationPointWriter->Write();
     // ** END: SUPPORT FOR INTEGRATION POINTS ** //
   }
@@ -1236,7 +1236,7 @@ namespace voom {
     // Write File
     vtkSmartPointer<vtkXMLPolyDataWriter> IntegrationPointWriter = vtkSmartPointer<vtkXMLPolyDataWriter>::New();
     IntegrationPointWriter->SetFileName(outputIntegrationPointDataFileName.c_str());
-    IntegrationPointWriter->SetInput(IntegrationPointGrid);
+    IntegrationPointWriter->SetInputData(IntegrationPointGrid);
     IntegrationPointWriter->Write();
   }
 
@@ -1278,7 +1278,7 @@ namespace voom {
     // Write File
     vtkSmartPointer<vtkXMLPolyDataWriter> IntegrationPointWriter = vtkSmartPointer<vtkXMLPolyDataWriter>::New();
     IntegrationPointWriter->SetFileName(outputIntegrationPointDataFileName.c_str());
-    IntegrationPointWriter->SetInput(IntegrationPointGrid);
+    IntegrationPointWriter->SetInputData(IntegrationPointGrid);
     IntegrationPointWriter->Write();
   }
 

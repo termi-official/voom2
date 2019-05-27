@@ -3,7 +3,7 @@ INCLUDES     = 	-I./ 					\
 		-I./../					\
 	 	-I./../VoomMath/ -I./../Shape		\
 		-I./../Element/ -I./../Quadrature	\
-		-I/u/local/apps/eigen/3.2.4/gcc-4.4.7/include/eigen3\
+		-I/usr/include/eigen3\
 		-I./../Geometry	\
 		-I./../HalfEdgeMesh
 

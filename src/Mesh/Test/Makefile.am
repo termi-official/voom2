@@ -5,7 +5,7 @@ INCLUDES = -I./../					\
 	   -I./../../Element -I./../../Quadrature	\
 	   -I./../../Shape				\
 	   -I./../../HalfEdgeMesh			\
-           -I/u/local/apps/eigen/3.2.4/gcc-4.4.7/include/eigen3\
+           -I/usr/include/eigen3\
 	  -I./../../Geometry 
 AM_LDFLAGS = -L./../ -L./../../VoomMath -L./../../Shape	\
 	     -L./../../Quadrature -L ./../../Element -L./../../HalfEdgeMesh -L./../../Geometry
