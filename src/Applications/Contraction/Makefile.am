@@ -1,5 +1,5 @@
-bin_PROGRAMS = TestStrip EllipsoidLV CheckingConsistency MaterialPoint EllipsoidLVSpring StripSpringBC MaterialPoint_PurelyUniaxial RabbitLV Contraction CylindricalStrip \
-	       TestingCompressibility
+bin_PROGRAMS = TestStrip EllipsoidLV CheckingConsistency MaterialPoint EllipsoidLVSpring StripSpringBC MaterialPoint_PurelyUniaxial RabbitLV CylindricalStrip \
+	       TestEllipsoid
 
 INCLUDES =		-I./							\
 			-I./../							\
@@ -50,6 +50,7 @@ LDADD = 		-lSolver						\
 			-lvtkCommonDataModel-8.1 -lvtkIOXML-8.1 -lvtkIOLegacy-8.1 -lvtkCommonCore-8.1 -lvtksys-8.1
 
 TestStrip_SOURCES = TestStrip.cc
+TestEllipsoid_SOURCES = TestEllipsoid.cc
 EllipsoidLV_SOURCES = EllipsoidLV.cc
 CheckingConsistency_SOURCES = CheckingConsistency.cc
 MaterialPoint_SOURCES = MaterialPoint.cc
@@ -57,6 +58,4 @@ EllipsoidLVSpring_SOURCES = EllipsoidLVSpring.cc
 StripSpringBC_SOURCES = StripSpringBC.cc
 MaterialPoint_PurelyUniaxial_SOURCES = MaterialPoint_PurelyUniaxial.cc
 RabbitLV_SOURCES = RabbitLV.cc
-Contraction_SOURCES = Contraction.cc
 CylindricalStrip_SOURCES = CylindricalStrip.cc
-TestingCompressibility_SOURCES = TestingCompressibility.cc

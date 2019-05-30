@@ -40,30 +40,31 @@ int main(int argc, char** argv)
   double deltaT = 0.01;
 
   // writeOutputFlag set to true for output.
-  bool writeOutputFlag = false;
+  bool writeOutputFlag = true;
 
   // OutputString
-  string outputString = "Output/Cube/NoViscosity/Cube_NoViscosity_";
+  string outputStringBase = "./Output/Cube/NoViscosity/Cube_NoViscosity_";
+  string outputString = outputStringBase + "Solution";
 
   // string outputString = "SingleElementTest_";
 
   // Fiber Visualization String
-  string fiberPlotString = outputString + "Fiber.vtk";
+  string fiberPlotString = outputStringBase + "Fiber.vtk";
   // string fiberPlotString = "SingElementTest_Fiber.vtk";
 
   // Initialize Mesh
   // Assumptions to use this main as is: strip has a face at z=0; tetrahedral mesh
-  FEMesh Cube("Mesh/Cube1.node", "Mesh/Cube1.ele");
-  FEMesh surfMesh("Mesh/Cube1.node", "Mesh/Cube1Surf.ele");
-  // FEMesh Cube("Mesh/Cube6.node", "Mesh/Cube6.ele");
-  // FEMesh surfMesh("Mesh/Cube6.node", "Mesh/Cube6Surf.ele");
-  Real xmax = 1.0;
+  //FEMesh Cube("Mesh/TestingStripMeshes/Cube1.node", "Mesh/TestingStripMeshes/Cube1.ele");
+  //FEMesh surfMesh("Mesh/TestingStripMeshes/Cube1.node", "Mesh/TestingStripMeshes/Cube1Surf.ele");
+  //FEMesh Cube("Mesh/TestingStripMeshes/Cube6.node", "Mesh/TestingStripMeshes/Cube6.ele");
+  //FEMesh surfMesh("Mesh/TestingStripMeshes/Cube6.node", "Mesh/TestingStripMeshes/Cube6Surf.ele");
+  //Real xmax = 1.0;
   // FEMesh Cube("Mesh/Strip36.node", "Mesh/Strip36.ele");
   // FEMesh surfMesh("Mesh/Strip36.node", "Mesh/Strip36Surf.ele");
   // Real xmax = 1.0;
-  // FEMesh Cube("Mesh/Strip144.node", "Mesh/Strip144.ele");
-  // FEMesh surfMesh("Mesh/Strip144.node", "Mesh/Strip144Surf.ele");
-  // Real xmax = 6.0; 
+   FEMesh Cube("Mesh/TestingStripMeshes/Strip144.node", "Mesh/TestingStripMeshes/Strip144.ele");
+   FEMesh surfMesh("Mesh/TestingStripMeshes/Strip144.node", "Mesh/TestingStripMeshes/Strip144Surf.ele");
+   Real xmax = 6.0; 
 
 
   // ***************************************** //
@@ -89,8 +90,8 @@ int main(int argc, char** argv)
   // HillForceVelPotential TestPotential(4.4*pow(10,-3), .01*0.59, 25);
   // BlankPotential TestPotential;
 
-  BlankViscousPotential ViscPotential;
-  // NewtonianViscousPotential ViscPotential(0.5, 0.5);
+  //BlankViscousPotential ViscPotential;
+  NewtonianViscousPotential ViscPotential(0.5, 0.5);
 
   // Visualize Fiber directions
   ofstream out;
@@ -110,7 +111,7 @@ int main(int argc, char** argv)
 
   // Read in Activation File:
   ifstream myfile;
-  myfile.open ("ActivationFunction_1ms.dat");
+  myfile.open ("InputFiles/ActivationFunction_1ms.dat");
   vector <double> Time(398, 0.0);
   vector <double> ActivationFactor(398, 0.0);
   for (int i = 0; i < 398; i++)
@@ -293,7 +294,7 @@ int main(int argc, char** argv)
       myModel.writeOutputVTK(outputString, ind);
   }
 
-  for (int s = 0; s < simTime/deltaT; s++) {
+  for (double s = 0; s < simTime/deltaT; s+=deltaT) {
     cout << endl << "============================" << endl;
     cout << "Step " << s << endl;
     // cout << "Activation Factor: " << ActivationFactor[s] << endl;

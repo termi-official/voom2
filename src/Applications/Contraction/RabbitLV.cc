@@ -56,9 +56,10 @@ int main(int argc, char** argv)
   FEMesh Cube("Mesh/RabbitLV/RabbitLV.node", "Mesh/RabbitLV/RabbitLV.ele");
   FEMesh surfMesh("Mesh/RabbitLV/RabbitLV.node", "Mesh/RabbitLV/RabbitLV.springSurfEle");
   string FiberFile = "Mesh/RabbitLV/RabbitLV.fiber";
+  //string BCfile = "Mesh/RabbitLV/RabbitLV.apexNodeBC";
   string BCfile = "Mesh/RabbitLV/RabbitLV.apexNodeBC";
   string ActivationTimeFile = "Mesh/RabbitLV/RabbitLV.activationTime";   // This is the Element Activation Time File
-  string ActivationFile = "ActivationFunction_1ms.dat";  // This is the Calcium Transient
+  string ActivationFile = "InputFiles/ActivationFunction_1ms.dat";  // This is the Calcium Transient
   // string BCfile = "Mesh/Small_A.bc";
   ifstream FiberInp(FiberFile.c_str());
   ifstream ActTime(ActivationTimeFile.c_str());

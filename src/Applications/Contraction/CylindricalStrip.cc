@@ -3,7 +3,7 @@
 #include "HillForceVelPotential.h"
 #include "BlankPotential.h"
 #include "APForceVelPotential.h"
-#include "APForceVelPotential_Test.h"
+//#include "APForceVelPotential_Test.h"
 #include "Humphrey_Compressible.h"
 #include "LinYinActive_Compressible.h"
 #include "Potential.h"
@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 
   // Pressure File
   bool pressureFlag = true;
-  string pressureFile = "Pressure_1ms.dat";
+  string pressureFile = "InputFiles/Pressure_1ms.dat";
   
   // Simulation Time (in ms)
   double simTime = 200;
@@ -36,7 +36,7 @@ int main(int argc, char** argv)
   double deltaT = 0.01;
 
   // OutputString
-  string outputString = "/u/project/cardio/adityapo/ScratchResults/CylindricalStrip/Cylinder";
+  string outputString = "./Output/CylindricalStrip/Cylinder";
 
   // Spring BC:
   int SpringBCflag = 1;

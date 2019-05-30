@@ -1,7 +1,8 @@
 //-*-C++-*-
 #ifndef __Result_h__
 #define __Result_h__
-#include "Model.h"
+
+#include "voom.h"
 
 namespace voom {
   //! Result is a class which contains standard result and defines basic interface to access/update them

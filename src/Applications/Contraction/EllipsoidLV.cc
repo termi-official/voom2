@@ -22,7 +22,7 @@ double calculateEjectionFraction(MechanicsModel* cavityModel, const MechanicsMod
 
 int main(int argc, char** argv)
 {
-  cout << string(50, '\n'); // Clear Screen
+  //cout << string(50, '\n'); // Clear Screen
 
   // Timing
   time_t start, end;
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
   double deltaT = 0.01;
 
   // OutputString
-  string outputString = "/home/termi/ScratchResults/PressureOnly/Ellipsoid";
+  string outputString = "./Output/PressureOnly/Ellipsoid";
   // string outputString = "/home/termi/ScratchResults/ContractionOnly/Ellipsoid";
 
   // Fiber Visualization String
@@ -169,8 +169,8 @@ int main(int argc, char** argv)
 
 
   APForceVelPotential TestPotential(4.0, 1000.0, 3.0);	// 50.0 for 2nd parameter, force
-  BlankViscousPotential ViscPotential;
-  // NewtonianViscousPotential ViscPotential(0.005, 0.5);
+  //BlankViscousPotential ViscPotential;
+  NewtonianViscousPotential ViscPotential(0.005, 0.5);
   Vector3d HardParam(0.,0.,0.);
 
   // Visualize Fiber directions

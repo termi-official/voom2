@@ -1,7 +1,8 @@
+
+#include "EigenResult.h"
 #include "PassMyoA.h"
 #include "CompNeoHookean.h"
 #include "FEMesh.h"
-#include "EigenEllipticResult.h"
 #include "MechanicsModel.h"
 #include "EigenNRsolver.h"
 #include "LBFGSB.h"
@@ -49,7 +50,7 @@ int main(int argc, char** argv)
   }
 
   // Load fibers into elements
-  Heart.setFibers(Fibers);
+  //Heart.setFibers(Fibers);
 
   // Initialize Model
   int NodeDoF = 3;
@@ -61,7 +62,7 @@ int main(int argc, char** argv)
   // Initialize Result
   uint myRequest;
   uint PbDoF = (Heart.getNumberOfNodes())*myModel.getDoFperNode();
-  EigenEllipticResult myResults(PbDoF, NumMat*2);
+  EigenResult myResults(PbDoF, NumMat*2);
 
 
 
@@ -77,7 +78,7 @@ int main(int argc, char** argv)
   myModel.updatePressure(1.0);
   myRequest = 2;
   myResults.setRequest(myRequest);
-  myModel.compute(myResults);
+  myModel.compute(&myResults);
   VectorXd Fstart = *(myResults._residual);
   Real pX = 0.0, pY = 0.0, pZ = 0.0;
   for (int i = 0; i < Fstart.size(); i += 3) {

@@ -8,8 +8,8 @@
 #define __Model_h__
 
 #include "voom.h"
+#include "Result.h" 
 #include "Mesh.h"
-#include "Result.h"
 
 namespace voom {
   class Model {
