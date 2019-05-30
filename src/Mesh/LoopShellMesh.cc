@@ -5,7 +5,11 @@
 namespace voom {
 
   // Constructor from input file
-  LoopShellMesh::LoopShellMesh(const string Nodes, const string ConnTable): Mesh(Nodes, ConnTable) {
+  LoopShellMesh::LoopShellMesh(const string Nodes, const string ConnTable, State* myState, bool CheckOverlap)
+    :Mesh(Nodes, ConnTable, myState, CheckOverlap) {
+
+    _elementType = "LoopShell";
+
     ifstream inp(ConnTable.c_str());
     
     uint NumFaces = 0, temp = 0;
@@ -38,6 +42,8 @@ namespace voom {
 	cout << it->first[0] << "," << it->first[1]<< "," << it->first[2] <<endl;
       }
     } 
+
+
   void LoopShellMesh::initializeMesh(vector<TriangleConnectivity> & connectivities){
 
     //------------------------------------------------------------------------

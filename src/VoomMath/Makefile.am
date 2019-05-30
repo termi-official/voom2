@@ -3,5 +3,5 @@ INCLUDES     = 	-I./ 					\
 		-I./../					\
 		-I/usr/include/eigen3
 
-lib_LIBRARIES=libVoomMath.a
-libVoomMath_a_SOURCES=VoomMath.cc
+lib_LIBRARIES = libVoomMath.a
+libVoomMath_a_SOURCES = VoomMath.cc

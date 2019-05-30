@@ -2,11 +2,13 @@
 SUBDIRS = 	VoomMath			\
 	  	VoomMath/Test			\
 	  	Geometry			\
-     	  	Potential			\
+                Potential			\
 	  	Material			\
 		Material/ViscousMaterial	\
 		Material/MechanicsMaterial	\
-		Material/Test			\
+		Material/PairMaterial		\
+		Material/PairMaterial/Test	\
+		Material/MechanicsMaterial/Test	\
 		Material/ViscousMaterial/Test	\
 	  	Quadrature			\
 	  	Quadrature/Test			\
@@ -18,8 +20,11 @@ SUBDIRS = 	VoomMath			\
 	  	HalfEdgeMesh/Test		\
 	  	Mesh				\
 	  	Mesh/Test			\
+		Body				\
+		Body/Test			\
 	  	Model				\
-	  	Solver				\
+	  	Model/Test			\
+		Solver				\
 	  	Solver/Test			\
 	  	Geometry			\
 	  	Output				\

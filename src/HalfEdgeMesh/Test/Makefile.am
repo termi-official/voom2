@@ -5,4 +5,4 @@ INCLUDES = -I./	-I./../	-I./../../			\
 	   -I/usr/include/eigen3
 test_LDFLAGS = -L./../ -L./../../VoomMath/ -L./../../Quadrature
 test_LDADD   = -lHEMesh -lVoomMath -lQuadrature
-test_SOURCES = test.cc
+test_SOURCES = TestHalfEdgeMesh.cc
