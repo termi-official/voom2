@@ -85,13 +85,13 @@ int main(int argc, char** argv)
 
   // Initialize Mesh
   // Assumptions to use this main as is: strip has a face at z=0; tetrahedral mesh
-  FEMesh Cube("Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.node", "Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.ele");
-  FEMesh surfMesh("Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.node", "Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.EpicardiumElset");
-  FEMesh innerSurfMesh("Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.node", "Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.EndocardiumElset");
-  string FiberFile = "Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.fiber";
-  string BCfile = "Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.Null.bc";
-  // string BCfile = "Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.BaseNodeset";
-  string torsionalSpringBC = "Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.BaseNodeset";
+  FEMesh Cube("Mesh/EllipsoidMeshFiner/Small_B.node", "Mesh/EllipsoidMeshFiner/Small_B.ele");
+  FEMesh surfMesh("Mesh/EllipsoidMeshFiner/Small_B.node", "Mesh/EllipsoidMeshFiner/Small_B.outerSurfEle");
+  FEMesh innerSurfMesh("Mesh/EllipsoidMeshFiner/Small_B.node", "Mesh/EllipsoidMeshFiner/Small_B.innerSurfEle");
+  string FiberFile = "Mesh/EllipsoidMeshFiner/Small_B.fiber";
+  string BCfile = "Mesh/EllipsoidMeshFiner/Small_B.Null.bc";
+  // string BCfile = "Mesh/EllipsoidMeshFiner/Small_B.BaseNodeset";
+  string torsionalSpringBC = "Mesh/EllipsoidMeshFiner/Small_B.ApexEBC.bc";
   string ActivationTimeFile = "Mesh/EllipsoidMeshFiner/Small_B.activationTime";   // This is the Element Activation Time File
   string ActivationFile = "InputFiles/ActFunc_600ms_1msInterval.dat";  // This is the Calcium Transient
   ifstream FiberInp(FiberFile.c_str());
@@ -106,9 +106,9 @@ int main(int argc, char** argv)
   if (calculateEjectionFractionFlag)
   {
     // Setup mesh for calculating ejection fraction
-    cavityMesh = new FEMesh("Mesh/EllipsoidMesh/Small_A_Cavity.node", 
-      		            "Mesh/EllipsoidMesh/Small_A_Cavity.ele");
-    string outerSurfFile = "Mesh/EllipsoidMesh/Small_A.innerSurfNode";
+    cavityMesh = new FEMesh("Mesh/EllipsoidMeshFiner/Small_B_Cavity.node", 
+      		            "Mesh/EllipsoidMeshFiner/Small_B_Cavity.ele");
+    string outerSurfFile = "Mesh/EllipsoidMeshFiner/Small_B.innerSurfNode";
 
     ifstream cavityNodeFileStream (outerSurfFile.c_str());
 
@@ -343,7 +343,7 @@ int main(int argc, char** argv)
   myModel.updateNodalForces(&ForcesID, &Forces);
 
   if (SpringBCflag)
-    myModel.initSpringBC("Mesh/EllipsoidMeshCoarse_Quadratic/EllipsoidCoarseQuadratic.EpicardiumNodeset", &surfMesh, SpringK);
+    myModel.initSpringBC("Mesh/EllipsoidMeshFiner/Small_B.outerSurf", &surfMesh, SpringK);
 
   if (torsionalSpringBCflag)
     myModel.initTorsionalSpringBC(torsionalSpringBC, TorsionalSpringK);
@@ -402,7 +402,7 @@ int main(int argc, char** argv)
   // Solver
   Real NRtol = 1.0e-7;
   uint NRmaxIter = 100;
-  EigenNRsolver mySolver(&myModel, BCid, BCvalues, CHOL, NRtol, NRmaxIter);
+  EigenNRsolver mySolver(&myModel, BCid, BCvalues, CG, NRtol, NRmaxIter);
 
   
   // SOLVE:

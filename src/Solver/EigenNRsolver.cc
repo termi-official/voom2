@@ -61,7 +61,7 @@ namespace voom
 	    }
 	  case 1:
 	    {
-	      ConjugateGradient<SparseMatrix<Real> > cg;
+	      ConjugateGradient<SparseMatrix<Real>, Lower|Upper > cg;
 	      // cg.setTolerance(1.0e-8);
 	      // cg.setMaxIterations(100000);
 	      cg.compute(*(myResults._stiffness));
